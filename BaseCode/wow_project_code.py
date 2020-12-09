@@ -41,7 +41,13 @@ allegations = Base.classes.allegations
 
 @app.route('/',methods=["GET","POST"])
 def home():
-    officers = db.session.query(allegations).all()
+    full_name = ' '
+    if request.form:
+        full_name = request.form.get("officer")
+    full_name = (str(full_name))
+    first_and_last = full_name.split(' ')
+    
+    officers = db.session.query(allegations).filter(allegations.first_name == first_and_last[0] and allegations.last_name == first_and_last[1])
     for officer in officers:
         print(officer.first_name, officer.last_name)
     
