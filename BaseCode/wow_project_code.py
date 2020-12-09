@@ -47,9 +47,9 @@ def home():
     full_name = (str(full_name))
     first_and_last = full_name.split(' ')
     
-    officers = db.session.query(allegations).filter(allegations.first_name == first_and_last[0] and allegations.last_name == first_and_last[1])
+    officers = db.session.query(allegations).filter(allegations.first_name == first_and_last[0].capitalize() and allegations.last_name == first_and_last[1].capitalize())
     for officer in officers:
-        print(officer.first_name, officer.last_name)
+        print(officer.first_name, officer.last_name,officer.shield_no)
     
     return render_template('search.html')
 
