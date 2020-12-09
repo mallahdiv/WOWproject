@@ -3,14 +3,50 @@
 #                                      By Kevin Harper, Darron McIntyre, Mallah-Divine Mallah
 
 
-from flask import Flask, request,render_template
+import sqlalchemy
+
+from flask import Flask, request, render_template
+from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy.orm import Session
+from sqlalchemy.ext.automap import automap_base
+
+
+
+
+
 
 
 app = Flask(__name__)
 
+# change code below to this format with your username, password and the name of your database in the correct spots like below
+# 'postgresql://username:password@localhost/mydatabase'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:dmcin003@localhost/postgres'
+
+db = SQLAlchemy(app)
+
+
+
+Base = automap_base()
+Base.prepare(db.engine,reflect=True)
+
+#allegations is my table name put your table name where you see allegations
+allegations = Base.classes.allegations
+
+
+
+
+
+
+
+
+
 
 @app.route('/',methods=["GET","POST"])
 def home():
+    officers = db.session.query(allegations).all()
+    for officer in officers:
+        print(officer.id)
+    
     return render_template('home.html')
 
 
