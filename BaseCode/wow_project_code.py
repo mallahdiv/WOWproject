@@ -18,9 +18,7 @@ from sqlalchemy.ext.automap import automap_base
 
 app = Flask(__name__)
 
-#created a awsDB and connected the database to the project
-
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:wowproject@justiceleague.cr2qomviop3w.us-east-2.rds.amazonaws.com/postgres'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://justiceleague:wowproject@localhost/officerDB'
 
 db = SQLAlchemy(app)
 
