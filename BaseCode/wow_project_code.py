@@ -18,7 +18,7 @@ from sqlalchemy.ext.automap import automap_base
 
 app = Flask(__name__)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://justiceleague:wowproject@localhost/officerDB'
+app.config['SQLALCHEMY_DATABASE_URI'] ='postgresql://justiceleague:wowproject@localhost/officerDB'
 
 db = SQLAlchemy(app)
 
@@ -57,3 +57,4 @@ def home():
 # this allows the python file to run
 if __name__ == "__main__":
     app.run()
+    
