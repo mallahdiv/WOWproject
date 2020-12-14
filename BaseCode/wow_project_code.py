@@ -19,7 +19,7 @@ from sqlalchemy.ext.automap import automap_base
 app = Flask(__name__)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://justiceleague:wowproject@localhost/officerDB'
-
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 
@@ -52,7 +52,9 @@ def home():
     for officer in officers:
         print(officer.first_name, officer.last_name, officer.shield_no)
     
-    return render_template('search.html')
+    return render_template('index.html')
+
+
 
 
 # this allows the python file to run
