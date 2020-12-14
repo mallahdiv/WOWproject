@@ -2,35 +2,36 @@
 <html>
   <head>
     <style>
-      table, th, td {
+      table,
+      th,
+      td {
         border: 1px solid black;
         border-collapse: collapse;
       }
-      th, td {
+      th,
+      td {
         padding: 15px;
       }
-     
     </style>
     <title>Officer</title>
   </head>
- <center>
-  
-  <table>
-    {%for officer in officers%}
-    <caption>Officer Information</caption>
-    <tr>
+  <center>
+    <table>
+      <caption>
+        Officer Information
+      </caption>
       <th>Officer</th>
-      <th>Command</th> 
+      <th>Command</th>
       <th>Title</th>
-    </tr> 
-    <tr>
-      <td>{{officer['first'] +' '+ officer['last']}} &nbsp;</td>
-      <td> {{officer['command_now']}} &nbsp;</td>
-      <td> {{officer['rank_now']}}</td>
-    </tr>       
-  </table>
- </center>   
-  
-   {%endfor%}
- 
+      {%for officer in officers%}
+
+      <tr>
+        <td>{{officer['first'] +' '+ officer['last']}} &nbsp;</td>
+        <td>{{officer['command_now']}} &nbsp;</td>
+        <td>{{officer['rank_now']}}</td>
+      </tr>
+
+      {%endfor%}
+    </table>
+  </center>
 </html>
