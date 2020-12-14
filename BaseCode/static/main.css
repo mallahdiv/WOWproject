@@ -8,6 +8,7 @@
     padding:0;
     list-style:none;
     text-decoration:none;
+    border: 0;
 }
 
 .header{
@@ -89,6 +90,7 @@ h2{
   font-size: 15px;
   right: 37px;
   font-family: 'PT Sans Caption', sans-serif;
+  margin:0; 
 
 }
 
