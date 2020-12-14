@@ -13,8 +13,8 @@
         padding: 15px;
       }
     </style>
-    <title>Officer</title>
   </head>
+  <title>Officer</title>
   <center>
     <table>
       <caption>
@@ -26,7 +26,12 @@
       {%for officer in officers%}
 
       <tr>
-        <td>{{officer['first'] +' '+ officer['last']}} &nbsp;</td>
+        <td>
+          <a href="/results={{ officer['first'] +' '+ officer['last']}}"
+            >{{ officer['first'] +' '+ officer['last'] }}</a
+          >
+        </td>
+
         <td>{{officer['command_now']}} &nbsp;</td>
         <td>{{officer['rank_now']}}</td>
       </tr>
