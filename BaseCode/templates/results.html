@@ -1,0 +1,13 @@
+
+<html>
+<h1>officers</h1>
+{%for officer in officers%}
+  <p>
+    <h3>{{officer['first'] +' '+ officer['last']}}</h3>
+        {{officer['command_now']}}
+    <br>{{officer['rank_now']}}</br>
+  </p>
+  
+  
+{%endfor%}
+</html>
