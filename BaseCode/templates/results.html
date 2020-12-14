@@ -1,13 +1,36 @@
-
+<!DOCTYPE html>
 <html>
-<h1>officers</h1>
-{%for officer in officers%}
-  <p>
-    <h3>{{officer['first'] +' '+ officer['last']}}</h3>
-        {{officer['command_now']}}
-    <br>{{officer['rank_now']}}</br>
-  </p>
+  <head>
+    <style>
+      table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+      }
+      th, td {
+        padding: 15px;
+      }
+     
+    </style>
+    <title>Officer</title>
+  </head>
+ <center>
   
+  <table>
+    {%for officer in officers%}
+    <caption>Officer Information</caption>
+    <tr>
+      <th>Officer</th>
+      <th>Command</th> 
+      <th>Title</th>
+    </tr> 
+    <tr>
+      <td>{{officer['first'] +' '+ officer['last']}} &nbsp;</td>
+      <td> {{officer['command_now']}} &nbsp;</td>
+      <td> {{officer['rank_now']}}</td>
+    </tr>       
+  </table>
+ </center>   
   
-{%endfor%}
+   {%endfor%}
+ 
 </html>
