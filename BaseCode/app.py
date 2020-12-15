@@ -148,7 +148,7 @@ def convert_to_dict(officer_list):
         officers.append(loaded_officer)
     return officers
 
-
+# helper function to get allegations for an officer
 def get_allegations_info(officers,unique_mos_id):
     officer_allegations = []
     for officer in officers:
