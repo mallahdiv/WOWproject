@@ -153,8 +153,13 @@ def get_allegations_info(officers,unique_mos_id):
     officer_allegations = []
     for officer in officers:
         if officer.unique_mos_id == int(unique_mos_id):
-            allegation_info = {'allegation':officer.fado_type +': '+officer.allegation,'complainant_details':officer.complainant_ethnicity+' '+officer.complainant_gender+', '+str(officer.complainant_age_incident)+' years old','ccrb_con':officer.board_disposition}
-            officer_allegations.append(allegation_info)
+            if officer.complainant_age_incident == 0:
+                #change to no data
+                allegation_info = {'allegation':officer.fado_type +': '+officer.allegation,'complainant_details':officer.complainant_ethnicity+' '+officer.complainant_gender+', No Data','ccrb_con':officer.board_disposition}
+                officer_allegations.append(allegation_info)
+            else:
+                allegation_info = {'allegation':officer.fado_type +': '+officer.allegation,'complainant_details':officer.complainant_ethnicity+' '+officer.complainant_gender+', '+str(officer.complainant_age_incident)+' years old','ccrb_con':officer.board_disposition}
+                officer_allegations.append(allegation_info)
     return officer_allegations
 
 
