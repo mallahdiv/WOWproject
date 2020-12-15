@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <table>
+          <caption>
+            Officer's Allegations 
+          </caption>
+          <th>Allegation</th>
+          <th>Complainant Details</th>
+          <th>CCRB Conclusion</th>
+          {%for allegation in officer_allegations%}
+    
+          <tr>
+            <td>{{allegation['allegation']}}</td>
+    
+            <td>{{allegation['complainant_details']}} &nbsp;</td>
+            <td>{{allegation['ccrb_con']}}</td>
+          </tr>
+    
+          {%endfor%}
+        </table>
+      </center>
+</body>
+</html>

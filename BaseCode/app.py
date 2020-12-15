@@ -96,11 +96,40 @@ def results():
 
     return render_template('results.html',officers = unique_officers_list)
 
+
+@app.route('/officer_results/<unique_mos_id>',methods=["GET","POST"])
+def officer_results(unique_mos_id):
+    search_input = session.get('search_input',None)
+    officer_allegations = []
+    print(unique_mos_id)
+    if search_input.isdigit():
+        #retrieve data by badge number
+        officers = db.session.query(allegations).filter(allegations.shield_no == search_input)
+        officer_allegations = get_allegations_info(officers,unique_mos_id)
+
+    else:
+        #retrieve data by officer last name using SQL LIKE statement which searches for a specified pattern in the data
+        officers = db.session.query(allegations).filter(allegations.last_name.like(search_input.capitalize() + "%"))
+        officer_allegations = get_allegations_info(officers,unique_mos_id)
+                
+
+
+    return render_template('officer_results.html',officer_allegations=officer_allegations)
+
+
+
+
+
+
+
+
+
 # helper function that creates a list of dictionaries with officer info in them
 def set_List_Of_officers(officers,officer_list):
     for officer in officers:
-        officer_info = {'first':officer.first_name,'last':officer.last_name,'command_now':officer.command_now,'rank_now':officer.rank_now}
+        officer_info = {'first':officer.first_name,'last':officer.last_name,'command_now':officer.command_now,'rank_now':officer.rank_now,'unique_mos_id':officer.unique_mos_id}
         officer_list.append(officer_info)
+
 
 #helper function that converts each officer dictionary to JSON in the list   
 def convert_to_JSON(officer_list):
@@ -110,6 +139,7 @@ def convert_to_JSON(officer_list):
         officers.append(officer_string)
     return officers
 
+
 #helper function that converts each officer JSON back to dictionary in the list
 def convert_to_dict(officer_list):
     officers = []
@@ -117,6 +147,19 @@ def convert_to_dict(officer_list):
         loaded_officer = json.loads(officer)
         officers.append(loaded_officer)
     return officers
+
+
+def get_allegations_info(officers,unique_mos_id):
+    officer_allegations = []
+    for officer in officers:
+        if officer.unique_mos_id == int(unique_mos_id):
+            allegation_info = {'allegation':officer.fado_type +': '+officer.allegation,'complainant_details':officer.complainant_ethnicity+' '+officer.complainant_gender+', '+str(officer.complainant_age_incident)+' years old','ccrb_con':officer.board_disposition}
+            officer_allegations.append(allegation_info)
+    return officer_allegations
+
+
+
+
 
 # this allows the python file to run
 if __name__ == "__main__":
