@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/Users/articleseven/Desktop/wow_project/WOWproject/venv"
+VIRTUAL_ENV="/Users/articleseven/Desktop/jtc_final/WOWproject/venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

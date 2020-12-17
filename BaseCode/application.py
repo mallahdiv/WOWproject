@@ -27,6 +27,7 @@ db = SQLAlchemy(app)
 
 
 
+
 Base = automap_base()
 Base.prepare(db.engine,reflect=True)
 
