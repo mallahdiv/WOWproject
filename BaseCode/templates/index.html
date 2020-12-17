@@ -3,8 +3,23 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Testing</title>
+    <title>Homepage</title>
     <link rel="stylesheet" href="static/main.css" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-decoration: none;
+        border: 0;
+      }
+
+      input[type="text"] {
+        text-align: center;
+        font-size: 21px;
+      }
+    </style>
   </head>
   <body>
     <div class="header">
@@ -12,11 +27,16 @@
         <div class="header_font">
           <div class="footer">
             <h1>Justice Through Code Final Project</h1>
-            <h2>Enter Officer Name Or Badge Number</h2>
+            <!-- <h2>Enter Officer Name Or Badge Number</h2> -->
             <div class="searchbar">
               <form method="POST" action="/">
                 <!-- <label for="officer">Enter Officer Name:</label> -->
-                <input type="search" id="officer" name="officer" />
+                <input
+                  type="text"
+                  id="officer"
+                  name="officer"
+                  placeholder="Enter Officer Name Or Badge#"
+                />
                 <button type="submit">Search</button>
               </form>
             </div>

@@ -3,7 +3,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap');
 
+
+
+
 *{
+
+
+  
     margin:0;
     padding:0;
     list-style:none;
@@ -51,7 +57,7 @@
 
 
   .searchbar input {
-     height: 30px;
+     height: 45px;
      width: 300px;
      border-radius: 5px;
 }
@@ -61,7 +67,7 @@
   
 
 
-  height: 30px;
+  height: 45px;
   width: 70px;
   border-radius: 5px
 
@@ -94,6 +100,14 @@ h2{
 
 }
 
+
+#main{
+
+background-color: #457B9D;
+text-align: center;
+
+
+}
 
 
 
