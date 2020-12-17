@@ -21,7 +21,7 @@ from sqlalchemy.ext.automap import automap_base
 app = Flask(__name__)
 app.secret_key = 'wow'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:wowproject@justiceleague.cr2qomviop3w.us-east-2.rds.amazonaws.com/postgres'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://justiceleague:wowproject@localhost/officerDB'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -32,12 +32,6 @@ Base.prepare(db.engine,reflect=True)
 
 
 allegations = Base.classes.allegations
-
-
-
-
-
-
 
 
 
@@ -115,11 +109,6 @@ def officer_results(unique_mos_id):
 
 
     return render_template('officer_results.html',officer_allegations=officer_allegations)
-
-
-
-
-
 
 
 
