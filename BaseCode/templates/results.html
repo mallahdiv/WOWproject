@@ -23,17 +23,22 @@
             <th class="text-center">Officer</th>
             <th class="text-center">Command</th>
             <th class="text-center">Title</th>
-            {%for officer in officers%}
-            <tr>
-              <td>
+            
+            {% if no_results %}
+              <h2>No Results Found</h2>
+            {% else %}  
+              {%for officer in officers%}
+               <tr>
+                <td>
                 <a href="/officer_results/{{officer['unique_mos_id']}}"
                   >{{ officer['first'] +' '+ officer['last'] }}</a
                 >
-              </td>
-              <td>{{officer['command_now']}} &nbsp;</td>
-              <td>{{officer['rank_now']}}</td>
-            </tr>
-            {%endfor%}
+               </td>
+                <td>{{officer['command_now']}} &nbsp;</td>
+                <td>{{officer['rank_now']}}</td>
+               </tr>
+              {%endfor%}
+            {% endif %}
           </tbody>
         </table>
       </div>

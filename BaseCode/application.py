@@ -39,7 +39,7 @@ allegations = Base.classes.allegations
 
 @app.route('/',methods=["GET","POST"])
 def home():
-    search_input = ' '
+    
     if request.form:
         search_input = request.form.get("officer")
         search_input = str(search_input)
@@ -62,6 +62,7 @@ def results():
     search_input = session.get('search_input',None)
     unique_officers_list = []
     officer_list = []
+    no_results = False
     #search by badge number
     if search_input.isdigit():
         #retrieve data by badge number
@@ -77,19 +78,26 @@ def results():
     
     #search by officer last name        
     else:
-        #retrieve data by officer last name using SQL LIKE statement which searches for a specified pattern in the data
-        officers = db.session.query(allegations).filter(allegations.last_name.like(search_input.capitalize() + "%"))
-        set_List_Of_officers(officers,officer_list)
-        json_names = convert_to_JSON(officer_list)
-        #drops duplicate officers by converting to set
-        officer_set = set(json_names)
-        unique_officers_list = list(officer_set)
-        unique_officers_list = convert_to_dict(unique_officers_list)
+        if search_input == '':
+            no_results = True
+        else:
+            #retrieve data by officer last name using SQL LIKE statement which searches for a specified pattern in the data
+            officers = db.session.query(allegations).filter(allegations.last_name.like(search_input.capitalize() + "%"))
+            set_List_Of_officers(officers,officer_list)
+            json_names = convert_to_JSON(officer_list)
+            #drops duplicate officers by converting to set
+            officer_set = set(json_names)
+            unique_officers_list = list(officer_set)
+            unique_officers_list = convert_to_dict(unique_officers_list)
+
+    # determines whether no results were found          
+    if len(unique_officers_list) == 0:
+        no_results = True
+    else:
+        no_results = False        
         
 
-        
-
-    return render_template('results.html',officers = unique_officers_list)
+    return render_template('results.html',officers = unique_officers_list,no_results = no_results)
 
 
 @app.route('/officer_results/<unique_mos_id>',methods=["GET","POST"])
