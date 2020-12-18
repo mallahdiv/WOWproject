@@ -9,6 +9,18 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="static/main.css" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      h3 {
+        font-family: "Kanit", sans-serif;
+      }
+    </style>
   </head>
 
   <body>
@@ -23,22 +35,20 @@
             <th class="text-center">Officer</th>
             <th class="text-center">Command</th>
             <th class="text-center">Title</th>
-            
+
             {% if no_results %}
-              <h2>No Results Found</h2>
-            {% else %}  
-              {%for officer in officers%}
-               <tr>
-                <td>
+            <h2>No Results Found</h2>
+            {% else %} {%for officer in officers%}
+            <tr>
+              <td>
                 <a href="/officer_results/{{officer['unique_mos_id']}}"
                   >{{ officer['first'] +' '+ officer['last'] }}</a
                 >
-               </td>
-                <td>{{officer['command_now']}} &nbsp;</td>
-                <td>{{officer['rank_now']}}</td>
-               </tr>
-              {%endfor%}
-            {% endif %}
+              </td>
+              <td>{{officer['command_now']}} &nbsp;</td>
+              <td>{{officer['rank_now']}}</td>
+            </tr>
+            {%endfor%} {% endif %}
           </tbody>
         </table>
       </div>
