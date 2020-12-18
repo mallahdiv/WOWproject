@@ -96,7 +96,6 @@ def results():
 def officer_results(unique_mos_id):
     search_input = session.get('search_input',None)
     officer_allegations = []
-    print(unique_mos_id)
     if search_input.isdigit():
         #retrieve data by badge number
         officers = db.session.query(allegations).filter(allegations.shield_no == search_input)
@@ -106,6 +105,7 @@ def officer_results(unique_mos_id):
         #retrieve data by officer last name using SQL LIKE statement which searches for a specified pattern in the data
         officers = db.session.query(allegations).filter(allegations.last_name.like(search_input.capitalize() + "%"))
         officer_allegations = get_allegations_info(officers,unique_mos_id)
+        print(officer_allegations[0]['shield_no'])
                 
 
 
@@ -145,14 +145,14 @@ def get_allegations_info(officers,unique_mos_id):
         if officer.unique_mos_id == int(unique_mos_id):
             if officer.complainant_gender == 'n/a':
                 #change to no data
-                allegation_info = {'allegation':officer.fado_type +': '+officer.allegation,'complainant_details':'Unknown','ccrb_con':officer.board_disposition}
+                allegation_info = {'name':officer.first_name + ' '+officer.last_name,'shield_no':officer.shield_no,'allegation':officer.fado_type +': '+officer.allegation,'complainant_details':'Unknown','ccrb_con':officer.board_disposition}
                 officer_allegations.append(allegation_info)
             else:
                 if officer.complainant_age_incident == 0:
-                    allegation_info = {'allegation':officer.fado_type +': '+officer.allegation,'complainant_details':officer.complainant_ethnicity+' '+officer.complainant_gender+', Unknown','ccrb_con':officer.board_disposition}
+                    allegation_info = {'name':officer.first_name + ' '+officer.last_name,'shield_no':officer.shield_no,'allegation':officer.fado_type +': '+officer.allegation,'complainant_details':officer.complainant_ethnicity+' '+officer.complainant_gender+', Unknown','ccrb_con':officer.board_disposition}
                     officer_allegations.append(allegation_info)
                 else:
-                    allegation_info = {'allegation':officer.fado_type +': '+officer.allegation,'complainant_details':officer.complainant_ethnicity+' '+officer.complainant_gender+', '+str(officer.complainant_age_incident)+' years old','ccrb_con':officer.board_disposition}
+                    allegation_info = {'name':officer.first_name + ' '+officer.last_name,'shield_no':officer.shield_no,'allegation':officer.fado_type +': '+officer.allegation,'complainant_details':officer.complainant_ethnicity+' '+officer.complainant_gender+', '+str(officer.complainant_age_incident)+' years old','ccrb_con':officer.board_disposition}
                     officer_allegations.append(allegation_info)
     return officer_allegations
 
