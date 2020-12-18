@@ -8,13 +8,30 @@
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
-    
+    <link rel="stylesheet" href="static/main.css" />
 
     <style type=text/css>
     body {background-color: #457B9D;
     
     text-align: center;
     }
+
+    h5{ 
+      
+      position: absolute;
+  left: 230px;
+  bottom: 670px;
+
+    }
+  
+
+
+
+   
+
+    
+
+    
 
     </style>
   </head>
@@ -39,9 +56,13 @@
             {%endfor%}
           </tbody>
         </table>
-        <h3>{{officer_allegations[0]['name']+'  '}}{{officer_allegations[0]['shield_no']}}</h3>
+        <!-- <h3>{{officer_allegations[0]['name']+'  '}}{{officer_allegations[0]['shield_no']}}</h3> -->
       </div>
     </div>
+    <div class="profile mb-5">
+      <h5>{{officer_allegations[0]['name']+'  '}}{{officer_allegations[0]['shield_no']}}</h5>
+    </div>
+    
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
       integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
