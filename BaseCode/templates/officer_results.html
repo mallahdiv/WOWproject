@@ -8,7 +8,7 @@
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="static/main.css" />
+    
 
     <style type=text/css>
     body {background-color: #457B9D;
@@ -16,32 +16,32 @@
     text-align: center;
     }
 
-    h5{ 
+
+    *{
+
+
+  
+    margin:0;
+    padding:0;
+    list-style:none;
+    text-decoration:none;
+    border: 0;
+}
+
+h5{ 
       
       position: absolute;
   left: 230px;
-  bottom: 670px;
+  bottom: 680px;
 
+  font-family: 'PT Sans Caption', sans-serif;
     }
-  
-
-    * {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        text-decoration: none;
-        border: 0;
-      }
-
-
-
-   
 
     
 
     
-
     </style>
+     <link rel="stylesheet" href="static/main.css" />
   </head>
   <body>
     <div class="container mt-5">
@@ -67,8 +67,8 @@
         <!-- <h3>{{officer_allegations[0]['name']+'  '}}{{officer_allegations[0]['shield_no']}}</h3> -->
       </div>
     </div>
-    <div class="profile mb-5">
-      <h5>{{officer_allegations[0]['name']+'  '}}{{officer_allegations[0]['shield_no']}}</h5>
+    <div>
+      <h5 class=" font-weight-bold  ">{{officer_allegations[0]['name']+'  '}}{{officer_allegations[0]['shield_no']}}</h5>
     </div>
     
     <script
