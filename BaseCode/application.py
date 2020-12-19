@@ -50,7 +50,9 @@ def home():
         session['search_input'] = search_input
         
         return redirect('/results')
-    
+        
+        
+        
     
     
     
@@ -97,8 +99,9 @@ def results():
     else:
         no_results = False        
         
-
-    return render_template('results.html',officers = unique_officers_list,no_results = no_results)
+    
+    
+    return render_template('results.html',officers = unique_officers_list,no_results=no_results)
 
 
 @app.route('/officer_results/<unique_mos_id>',methods=["GET","POST"])

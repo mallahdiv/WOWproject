@@ -15,6 +15,7 @@
       href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="static/no_results_modal.css">
 
     <style>
       h3 {
@@ -42,8 +43,16 @@
             <th class="text-center">Title</th>
 
             {% if no_results %}
-            <h2 class="text-center">No Results Found</h2>
-            {% else %} {%for officer in officers%}
+              <div id ="simpleModal" class = "modal">
+                <div class="modal-content">
+                  <span  class="closeBtn">&times;</span>
+                  <p>No Results found</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                </div>
+              </div>    
+      
+              <script src="static/no_results.js"></script>
+            {% else %} 
+            {%for officer in officers%}
             <tr>
               <td>
                 <a href="/officer_results/{{officer['unique_mos_id']}}"
@@ -53,7 +62,8 @@
               <td>{{officer['command_now']}} &nbsp;</td>
               <td>{{officer['rank_now']}}</td>
             </tr>
-            {%endfor%} {% endif %}
+            {%endfor%} 
+            {% endif %}
           </tbody>
         </table>
       </div>
