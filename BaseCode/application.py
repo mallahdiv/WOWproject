@@ -174,6 +174,6 @@ def get_allegations_info(officers,unique_mos_id):
 
 
 # this allows the python file to run
-if __name__ == "__main__":
-    app.run()
+# if __name__ == "__main__":
+#     app.run()
     
