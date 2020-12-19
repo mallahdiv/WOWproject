@@ -6,6 +6,10 @@ name = "pypi"
 [packages]
 appdirs = "==1.4.4"
 applaunchservices = "==0.2.1"
+flask = "*"
+psycopg2 = "*"
+psycopg2-binary = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 
