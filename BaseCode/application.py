@@ -116,8 +116,9 @@ def officer_results(unique_mos_id):
         print(officer_allegations[0]['shield_no'])
                 
 
+    
 
-    return render_template('officer_results.html',officer_allegations=officer_allegations)
+    return render_template('officer_results.html',officer_allegations=officer_allegations,x=x)
 
 
 
