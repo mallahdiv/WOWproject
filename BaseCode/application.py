@@ -119,7 +119,7 @@ def officer_results(unique_mos_id):
 
     
 
-    return render_template('officer_results.html',officer_allegations=officer_allegations,x=x)
+    return render_template('officer_results.html',officer_allegations=officer_allegations)
 
 
 
