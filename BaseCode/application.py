@@ -21,7 +21,8 @@ from sqlalchemy.ext.automap import automap_base
 app = Flask(__name__)
 app.secret_key = 'wow'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://justiceleague:wowproject@localhost/officerDB'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:wowproject@thejusticeleague.cr2qomviop3w.us-east-2.rds.amazonaws.com/postgres'
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
