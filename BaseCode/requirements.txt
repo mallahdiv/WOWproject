@@ -16,6 +16,7 @@ lazy-object-proxy==1.4.3
 MarkupSafe==1.1.1
 mccabe==0.6.1
 pipenv==2020.11.15
+psycopg2-binary==2.8.6
 pycodestyle==2.6.0
 pylint==2.6.0
 six==1.15.0
