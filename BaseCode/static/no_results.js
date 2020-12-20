@@ -1,5 +1,7 @@
 // Get modal element
 
+// Get modal element
+
 var modal = document.getElementById('simpleModal');
 
 
@@ -8,7 +10,7 @@ var modal = document.getElementById('simpleModal');
 var closeBtn = document.getElementsByClassName('closeBtn')[0];
 
 
-openModal()
+
 
 //Listen for close click
 closeBtn.addEventListener('click',closeModal)
@@ -21,6 +23,5 @@ function openModal()
 
 
 function closeModal(){
-    modal.style.display = 'none';
-    //redirect to home page!   
+    modal.style.display = 'none';  
 }

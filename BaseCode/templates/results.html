@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Results</title>
     <link
       rel="stylesheet"
@@ -15,7 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="static/no_results_modal.css">
+    
 
     <style>
       h3 {
@@ -27,6 +30,7 @@
         color: black;
       }
     </style>
+    <link rel="stylesheet" href="static/no_results_modal.css">
   </head>
 
   <body>
@@ -43,14 +47,14 @@
             <th class="text-center">Title</th>
 
             {% if no_results %}
-              <div id ="simpleModal" class = "modal">
-                <div class="modal-content">
-                  <span  class="closeBtn">&times;</span>
-                  <p>No Results found</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-                </div>
-              </div>    
+            <div id ="simpleModal" class = "modal">
+              <div class="modal-content">
+                  <a href="/" class="closeBtn">&times;</a>
+                  <p>No Officer Found</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+              </div>
+          </div>    
       
-              <script src="static/no_results.js"></script>
+          <script src="static/no_results.js"></script>
             {% else %} 
             {%for officer in officers%}
             <tr>
