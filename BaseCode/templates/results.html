@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Results</title>
     <link
       rel="stylesheet"
@@ -18,7 +15,6 @@
       href="https://fonts.googleapis.com/css2?family=Kanit:wght@700&display=swap"
       rel="stylesheet"
     />
-    
 
     <style>
       h3 {
@@ -30,7 +26,7 @@
         color: black;
       }
     </style>
-    <link rel="stylesheet" href="static/no_results_modal.css">
+    <link rel="stylesheet" href="static/style.css" />
   </head>
 
   <body>
@@ -47,16 +43,29 @@
             <th class="text-center">Title</th>
 
             {% if no_results %}
-            <div id ="simpleModal" class = "modal">
+            <div id="myModal" class="modal">
+              <!-- Modal content -->
               <div class="modal-content">
-                  <a href="/" class="closeBtn">&times;</a>
-                  <p>No Officer Found</p>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+                <a href="/" class="close">&times;</a>
+                <p>No Officer Found..</p>
               </div>
-          </div>    
-      
-          <script src="static/no_results.js"></script>
-            {% else %} 
-            {%for officer in officers%}
+            </div>
+
+            <script>
+              var modal = document.getElementById("myModal");
+              // Get the <span> element that closes the modal
+              var span = document.getElementsByClassName("close")[0];
+              // When the user clicks on the button, open the modal
+              function openModal() {
+                modal.style.display = "block";
+              }
+              openModal();
+              // When the user clicks on <span> (x), close the modal
+              span.onclick = function () {
+                modal.style.display = "none";
+              };
+            </script>
+            {% else %} {%for officer in officers%}
             <tr>
               <td>
                 <a href="/officer_results/{{officer['unique_mos_id']}}"
@@ -66,8 +75,7 @@
               <td>{{officer['command_now']}} &nbsp;</td>
               <td>{{officer['rank_now']}}</td>
             </tr>
-            {%endfor%} 
-            {% endif %}
+            {%endfor%} {% endif %}
           </tbody>
         </table>
       </div>

@@ -99,7 +99,7 @@ def results():
     else:
         no_results = False        
         
-    
+    print(no_results)
     
     return render_template('results.html',officers = unique_officers_list,no_results=no_results)
 
