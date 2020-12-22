@@ -12,6 +12,7 @@ Frontend:
     CSS
     Javascript
 
+The data stored in the PostgresQL database was a csv file released by the CCRB that was made public in 2020. So the data is real and relative.
 
 
 
@@ -34,7 +35,7 @@ Funtionality:
           pip install psycopg2-binary
           pip install sqlAlchemy
 
-          The database we are using is postgreSQL and it was deployed on a AWS RDS database to allow users to access the data from any location. 
+          The database we are using is postgreSQL and it was deployed on a AWS RDS database to allow users to access the data from any location. We did not want to put up the AWS address up on github for security reasons so when you need the address you can  contact Kevin H. for the endpoint. (note: the heroku should work fine. This way is here just incase you would like to do it the long way.)  
 
           To run the file go to directory of the application.py file and run as python file in terminal: python application.py or python3 application.py (whichever applies for your machine)
 
