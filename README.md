@@ -1,6 +1,7 @@
 # WOWproject
 
 # add more details about what are project is here
+The Justice League WOW Project was birthed in the spirit of community first thinking and easy access to information. We want communities to be able to research what type of officers are patroling their communites. Is the officer a community partner or gestapo. The project will develop and have information on the Neighborhood Coordination Officers(NCOs) that are assigned to a neighborhood to serve as liasisons between the police and the community. in further development stages the app will also have the command structure and contact information for the local precincts.
 
 
 You can search in the search bar an officer's last name or badge # to find results.
