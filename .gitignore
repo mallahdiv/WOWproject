@@ -1,1 +1,33 @@
+# Python cache
 __pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Environment variables
+.env
+.env.*
+
+# Build and packaging
+build/
+dist/
+*.egg-info/
+
+# Test and coverage output
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Local databases and instance files
+*.sqlite3
+*.db
+instance/
+
+# Editor and OS files
+.vscode/
+.idea/
+.DS_Store
